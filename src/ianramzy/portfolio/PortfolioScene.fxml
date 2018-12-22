@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ianramzy.portfolio.TableViewController">
+   <children>
+      <VBox layoutX="26.0" layoutY="19.0" prefHeight="694.0" prefWidth="542.0" spacing="10.0">
+         <children>
+            <HBox prefHeight="35.0" prefWidth="542.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#changeScreenButtonPushed" text="Go Back" />
+                  <Label text="Portfolio Tracker">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="tableView" onMouseClicked="#stockSelected" prefHeight="606.0" prefWidth="540.0">
+              <columns>
+                <TableColumn fx:id="symbolColumn" editable="false" prefWidth="90.0" text="Symbol" />
+                  <TableColumn fx:id="quantityColumn" editable="false" prefWidth="90.0" sortable="false" text="Quantity" />
+                <TableColumn fx:id="entryColumn" editable="false" prefWidth="90.0" sortable="false" text="Entry" />
+                  <TableColumn fx:id="priceColumn" editable="false" prefWidth="90.0" sortable="false" text="Price" />
+                  <TableColumn fx:id="PLColumn" editable="false" prefWidth="90.0" sortable="false" text="P/L" />
+                  <TableColumn fx:id="PLPColumn" editable="false" prefWidth="90.0" sortable="false" text="P/L %" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" prefHeight="10.0" prefWidth="542.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="symbolTextField" prefWidth="175.0" promptText="Symbol" />
+                  <TextField fx:id="quantityTextField" prefHeight="27.0" prefWidth="175.0" promptText="Quantity" />
+                  <TextField fx:id="entryTextField" prefHeight="27.0" prefWidth="172.0" promptText="Entry" />
+               </children>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="542.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newStockButtonPushed" prefWidth="175.0" text="Add New" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefWidth="175.0" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#updateCSV" prefHeight="27.0" prefWidth="172.0" text="Update Stocks" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <AreaChart fx:id="areaChart" layoutX="594.0" layoutY="53.0" prefHeight="657.0" prefWidth="661.0" style="-fx-background-color: white;">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+         <xAxis>
+            <CategoryAxis side="BOTTOM" style="-fx-background-color: white;" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="yAxis" prefHeight="644.0" prefWidth="38.0" side="LEFT" style="-fx-background-color: white;">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </NumberAxis>
+         </yAxis>
+      </AreaChart>
+      <Label fx:id="lowLabel" layoutX="651.0" layoutY="150.0" text="Low: 169.69" />
+      <Label fx:id="highLabel" layoutX="651.0" layoutY="134.0" text="High: 139.96" />
+      <Label fx:id="changeLabel" layoutX="714.0" layoutY="98.0" text="+0.89%">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="volumeLabel" layoutX="652.0" layoutY="118.0" text="Volume: 110292" />
+      <Label fx:id="priceLabel" layoutX="652.0" layoutY="98.0" text="110.90">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameLabel" layoutX="651.0" layoutY="66.0" text="STCK">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
